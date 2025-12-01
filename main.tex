@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{graphicx} % Required for inserting images
+\usepackage[french]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{lmodern,textcomp}
+
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+]{biblatex}
+\addbibresource{references.bib}
+
+\title{Annexes et bibliographie}
+\author{Romain Blondel \and Salim Chaoui El Faiz \and Ismael Douadi \and Yacine Kebir \and Mamoun Yaakoubi}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Résumé}
+
+Une sand battery est un système de stockage d'énergie sous forme thermique. Étant plus efficace lorsqu'elle est plus grande, elle s’inscrit généralement dans le planning énergétique à l'échelle d'un quartier et son énergie peut être utilisée par exemple via un réseau de chauffage à distance. Un cas d'usage évident est le stockage du surplus issu du solaire durant l'été afin de le redistribuer pour le chauffage en hiver. D'un point de vue efficience, elle ne requiert pas de matériaux ou technologies trop complexes pour être implémentée, mais offre un rendement correcte ainsi qu'un coût comparable à différentes alternatives, que ce soit du point de vue chauffage ou stockage. Les matériaux utilisés sont aussi une perspective de durabilité de part leur aspect très commun, et la possibilité d'être un moyen de recyclage des déchets du bâtiment par exemple.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{sand-bat.jpg}
+    \caption{Usage d'une sand battery comme stockage d'énergie sous forme de chaleur, pouvant permettre à palier les intermittence des énergies renouvelables. (Illustration par Simo Heikkinen/Polar Night Energy \cite{szewerda_concept_2025})}
+\end{figure}
+
+\section{Estimations numériques}
+
+Nous regroupons ici quelques détails justifiants nos estimations numériques. Notons que le titre indicatif de celles-ci mène à l'utilisation de sources plus ou moins fiables, et sont donc à prendre avec prudence, par exemple la plupart des chiffres liés à l'installation de système géothermique sont issus de sources ayant un clair intérêt à le présenter positivement.
+
+\subsection{En tant que système de chauffage}
+\label{sec:chauff}
+
+Nous avons comparer un projet de stockage d'énergie solaire dans une sand battery \cite{sdg21_solarstadt_2016, solar_dynamix_solar_2025} avec le coût de chauffage engendré par une installation au mazout \cite{checkatrade_cost_2023} et une installation géothermique \cite{houzy_magazine_costs_2024, cta_heat_2025}. La sand battery couvre 50\% des besoins en eau chaude et chauffage pour 570 appartements, avec une moyenne à 70 $\text{m}^2$. Le prix de 4.2 millions d'euros comprends 4'056 $\text{m}^2$ de panneau solaire et et une batterie cylindrique de 33 m de diamètre, 20 m de haut, contenant 12'000 $\text{m}^3$ de béton. Cela revient donc à 7'400 € par appartement, et pour chaque nouvel appartement le coût de raccordement est d'environ 5'800 €. La surface de panneau solaire est déjà un facteur contraignant, étant donné que si on les met sur le toit des immeubles, il faudrait faire maximum 10 étages pour avoir une surface de toit suffisante. De plus, si l'on compte une hauteur sous plafond de 2.4 m, la sand battery occupe l'équivalent de 100 appartements, soit un cinquième de l'espace à chauffer. Si cet investissement vise à remplacer un chauffage au mazout, le coût est moindre au plus de 500 €/an, et nécessiterait donc une quinzaine d'année à amortir. En tant que frais d'installation, le mazout peut être estimé à 20'000 CHF pour tout chauffer, donc à part égal ce serait 10'000 CHF, là où pour 12 appartements une installation géothermique est à 80'000 CHF, soit 6'700 CHF par appartement ou 3'350 CHF pour le 50\%. Les coûts annuels suivent les même rapports \cite{houzy_magazine_costs_2024, sil_chaleur_2025, vaillant_chauffage_2025}, car pour une référence à 20'000 kWh, le mazout est à 3'500 CHF, une pompe à chaleur nécessiterait 1'000 CHF d'entretien et la sand battery reviendrait à 3'200 CHF au tarif du chauffage à distance. En résumé, c'est une bonne alternative au mazout pour en tant que chauffage, mais cela n'étant pas son intérêt principale la sand battery s'avère moins avantageux qu'une pompe à chaleur.
+
+\subsection{En tant que système de stockage}
+
+En effet, l'intérêt principale d'une sand battery est de palier l'intermittence des énergies renouvelables, et dans cet optique de stockage nous pouvons les comparer aux batteries au lithium. Ces dernières sont autour de 80 CHF par kWh \cite{our_world_in_data_lithium_2024}, et on peut donc les estimer d'occasion à 60 CHF par kWh, par exemple issu d'anciennes voitures électriques. Pour la sand battery, nous évaluons le sable à 40 CHF par $\text{m}^3$ \cite{geomaterio_quel_2024}, de capacité calorifique $835 \  \text{J} \text{K}^{-1} \text{kg}^{-1}$ \cite{wikipedia_contributors_capacite_2025} et une masse volumique de $1'850 \  \text{kg} \text{m}^{-3}$. En considérant qu'on le monte à 600°C, la formule suivante \cite{ansermet_thermodynamique_2024} :
+
+\begin{equation}
+    Q = c \cdot m \cdot \Delta T
+    \label{cap_th}
+\end{equation}
+
+relie la chaleur stockée $Q$ à la capacité calorifique $c$, la masse $m$ et la différence de température $\Delta T$. On a alors qu'un mètre cube de sable peut contenir 248 kWh, donc au prix du sable on est à 16 centimes au kWh. Néanmoins, en considérant qu'il faut 5\% du volume en isolant (estimé en prenant une paroi de 10 cm sur une batterie comme celle citée en section \ref{sec:chauff}), isolant que l'on prendra en polypropylène comme pour un Thermos \cite{moreta_vera_thermos_2024} coûtant 1.3 CHF par kilogramme, et avec une masse volumique de 900 kilogramme par mètre cube on obtient un coût total de 58.5 CHF par kWh. On voit la dominance du coût en isolant sur celui de la sand battery, et cela fait que le prix est similaire à la batterie au lithium. Néanmoins, on peut facilement imaginer voir ce coût diminuer avec un démocratisation de la technologie. De plus, on notera que l'usage est différent, de part que l'un stocke l'énergie sous forme électrique, et l'autre thermique. La batterie au lithium est 10\% plus efficace (95\% contre 85\% pour les sand battery), mais moins dense énergétiquement du haut de ses 0.4 Wh par mètre cube \cite{wikipedia_contributors_accumulateur_2025}, contre 2.5 pour le sable. On notera que dans les deux cas, la batterie se décharge naturellement selon une décroissance exponentielle (pour la batterie lithium, c'est la décharge d'un condensateur, et pour la batterie à sable, cela s'obtient en résolvant des versions simplifiées de l'équation de Fourier). Ce n'est néanmoins pas trop embêtant car une sand battery bien conçue peut perdre moins de 50\% de sa charge en 3 mois \cite{polar_night_energy_sand_2025-1}.
+
+\subsection{Utilisation de matériaux recyclés}
+
+Les matériaux des bâtiments présentent une capacité thermique similaire au sable, autour de $0.8 \  \text{kJ} \text{K}^{-1} \text{kg}^{-1}$ \cite{matmake_specific_2018}, et sachant qu'on trouve pour un mètre carré de logement près de 2.3 tonnes de béton \cite{miatto_correlation_2023}, cela fait une potentielle ressource en cas de démolition. En se basant sur un projet de démolition français \cite{plaine_commune_4_2025}, un peu moins de 2'000 logements détruits, avec entre 80 et 100 $\text{m}^2$ chacun représentent une surface entre 160'000 et 200'000 $\text{m}^2$, soit entre 370'000 et 460'000 t de béton. Considérant la récupération du sable dans celui-ci avec un rendement de 30\% \cite{municipality_of_roskilde_guide_2025}, et en limitant la température de la sand battery à 300°C pour éviter l’agglomération des impuretés, on a donc autour de 125'000 t de sables, via la température donnée et \eqref{cap_th}, environ 7.84 GWh d'énergie, ce qui pourrait chauffer 600 logements lausannois \cite{odysee-mure_energy_2025}.
+
+\section{Note sur les sources}
+
+Nous fournissons dans ce document toutes les sources ayant servi à la rédaction du poster dans un souci d'exhaustivité. Nous réalisons bien que certaines sont issues de promotions commerciales, et sont donc à prendre en compte avec précaution. Néanmoins, elles offrent un ordre d'idée pratique pour créer une image globale du sujet, ainsi que pour mettre en perspective les ordres de grandeur en jeu.
+
+\nocite{*}
+\printbibliography
+
+\end{document}
